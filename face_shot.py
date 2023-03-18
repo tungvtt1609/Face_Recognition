@@ -2,6 +2,9 @@ import cv2
 
 #name = 'TungVT'  # replace with your name
 name = input('Nhập tên nhân viên:')
+# id   = input('Nhập mã nhân viên:')
+# pos  = input('Nhập vị trí làm việc:')
+
 
 cam = cv2.VideoCapture(0)
 
@@ -22,12 +25,16 @@ while True:
         # ESC pressed
         print("Escape hit, closing…")
         break
+
     elif k % 256 == 32:
         # SPACE pressed
         img_name = "dataset/" + name + "/image_{}.jpg".format(img_counter)
         cv2.imwrite(img_name, frame)
         print("{} written!".format(img_name))
         img_counter += 1
+
+    elif img_counter > 10:
+        break
 
 cam.release()
 

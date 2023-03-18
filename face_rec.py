@@ -11,12 +11,19 @@ import cv2
 import os
 import sys
 import signal
-from gtts import gTTS
-import wikipedia
-import playsound
+# from gtts import gTTS
+# import wikipedia
+# import playsound
 
 #Initialize 'currentname' to trigger only when a new person is identified.
 currentname = "unknown"
+
+#set text style
+fontface = cv2.FONT_HERSHEY_SIMPLEX
+fontscale = 1
+fontcolor = (0,255,0)
+fontcolor1 = (0,0,255)
+
 #Determine faces from encodings.pickle file model created from train_model.py
 encodingsP = "encodings.pickle"
 #use this xml file
@@ -45,14 +52,14 @@ fps = FPS().start()
 # Initialize sound of function
 # def play_sound(path):
 #     os.system('aplay ' + path)
-wikipedia.set_lang('vi')
-language = 'vi'
+# wikipedia.set_lang('vi')
+# language = 'vi'
 
-def speak(text):
-    tts = gTTS(text=text, lang=language, slow=False)
-    tts.save("sound.mp3")
-    playsound.playsound("sound.mp3", False)
-    os.remove("sound.mp3")
+# def speak(text):
+#     tts = gTTS(text=text, lang=language, slow=False)
+#     tts.save("sound.mp3")
+#     playsound.playsound("sound.mp3", False)
+#     os.remove("sound.mp3")
 
 
 # loop over frames from the video file stream
